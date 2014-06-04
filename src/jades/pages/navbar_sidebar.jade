@@ -1,0 +1,47 @@
+extends ../layouts/base
+
+block content
+  .container(style="max-width: none;")
+    .row(style="position: relative;")
+      .col-xs-12.col-md-3.col-lg-2.hidden-xs.hidden-sm(style="border-right: 1px solid #ddd; position: absolute; top: 0; bottom: 0;")
+        .text-center(style="padding-top: 20px;")
+          img.img-circle(src="http://placehold.it/100x100")
+        ul.nav
+          li
+            a.h4(href="#") Store
+            ul.nav.nav-pills.nav-stacked
+              each item in ['Orders', 'Customers', 'Products', 'Collections', 'Discounts']
+                if item == 'Orders'
+                  li.active
+                    a(href='#')= item
+                else
+                  li
+                    a(href='#')= item
+          li
+            a.h4(href="#") Pages
+            ul.nav.nav-pills.nav-stacked
+              each item in ['Manage', 'Navigation']
+                if item == 'Orders'
+                  li.active
+                    a(href='#')= item
+                else
+                  li
+                    a(href='#')= item
+          li
+            a.h4(href="#") Blog
+            ul.nav.nav-pills.nav-stacked
+              each item in ['Posts', 'Subscribers']
+                if item == 'Orders'
+                  li.active
+                    a(href='#')= item
+                else
+                  li
+                    a(href='#')= item
+      .col-xs-12.col-md-9.col-md-offset-3.col-lg-10.col-lg-offset-2
+        .page-header
+          .btn-group.pull-right
+            .btn.btn-default Filter
+            .btn.btn-default Search
+            .btn.btn-primary New
+          h2 Orders
+        include ../includes/_orders_table

@@ -1,0 +1,51 @@
+extends ../layouts/base
+
+block content
+  nav.navbar.navbar-default(role='navigation', style="border-radius: 0;")
+    .container
+      .navbar-header
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href='#') ContentManager
+      .collapse.navbar-collapse
+        ul.nav.navbar-nav
+          each item in ['Store', 'Pages', 'Blog']
+            if item == 'Store'
+              li.active
+                a(href='#')= item
+            else
+              li
+                a(href='#')= item
+        ul.nav.navbar-nav.navbar-right
+          li.dropdown
+            a.dropdown-toggle(href='#', data-toggle='dropdown')
+              | @jackbach
+              b.caret
+            ul.dropdown-menu
+              li
+                a(href='#') Action
+  .container(style="margin-top: -15px;")
+    h1.h3.pull-left(style="margin: 0; line-height: 40px;") Store
+    ul.nav.nav-pills.pull-right
+      each item in ['Orders', 'Customers', 'Products', 'Collections', 'Discounts']
+        if item == 'Orders'
+          li.active
+            a(href='#')= item
+        else
+          li
+            a(href='#')= item
+  hr(style="margin: 5px 0 20px;")
+  .container
+    .row
+      .col-xs-12
+        .panel.panel-default
+          .panel-heading
+            .btn-group.pull-right(style="margin-top: -5px;")
+              .btn.btn-sm.btn-default Filter
+              .btn.btn-sm.btn-default Search
+              .btn.btn-sm.btn-default New
+            .h4(style="margin: 0;") Orders
+          include ../includes/_orders_table

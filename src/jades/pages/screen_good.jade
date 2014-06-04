@@ -1,0 +1,49 @@
+extends ../layouts/base
+
+block content
+  nav.navbar.navbar-default(role='navigation', style="border-radius: 0;")
+    .container
+      .navbar-header
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href='#') Recipies App
+      .collapse.navbar-collapse
+        ul.nav.navbar-nav
+          each item in ['Recipies', 'Ingredients', 'Blog']
+            li
+              a(href='#')= item
+        ul.nav.navbar-nav.navbar-right
+          li.dropdown
+            a.dropdown-toggle(href='#', data-toggle='dropdown')
+              | @jackbach
+              b.caret
+            ul.dropdown-menu
+              li
+                a(href='#') Action
+  .container
+    .row
+      .col-xs-12.col-md-8.col-md-offset-2
+        .text-center(style="margin: 60px 0 20px;")
+          h1 Find the Best Recipies
+          p.lead Curated recipies by the best cooks in the world
+        form(style="margin: 40px 0 100px;")
+          .input-group.input-group-lg
+            input.form-control(type="search", placeholder="Search by ingredient or name...")
+            .input-group-btn
+              button.btn.btn-primary Seach
+  hr
+  .container
+    .row
+      each ingredient in ['Pasta', 'Rice', 'Vegan', 'Chicken']
+        .col-xs-12.col-sm-6.col-md-3
+          a.thumbnail(href="#")
+            .caption.text-center
+              h3
+                = ingredient
+                br
+                small Recipies
+  hr
+

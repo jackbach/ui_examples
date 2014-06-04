@@ -1,0 +1,55 @@
+extends ../layouts/base
+
+block content
+  nav.navbar.navbar-default(role='navigation', style="border-radius: 0;")
+    .container
+      .navbar-header
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href='#') Recipies App
+      .collapse.navbar-collapse
+        ul.nav.navbar-nav
+          each item in ['Recipies', 'Ingredients', 'Blog']
+            li
+              a(href='#')= item
+        ul.nav.navbar-nav.navbar-right
+          li.dropdown
+            a.dropdown-toggle(href='#', data-toggle='dropdown')
+              | @jackbach
+              b.caret
+            ul.dropdown-menu
+              li
+                a(href='#') Action
+  .container
+    .row
+      .jumbotron.clearfix
+        .col-xs-12.col-md-6
+          h2 Search Recipies
+          p In this website you can search for recipies deppending on the ingredients you want to use.
+          form
+            .input-group.input-group-lg
+              input.form-control(type="search")
+              .input-group-btn
+                button.btn.btn-primary Seach
+        .col-xs-12.col-md-6
+          h3 Subscribe to the Newsletter
+          p Get the best recipies every week.
+          form
+            .input-group.input-group
+              input.form-control(type="email", placeholder="Your email...")
+              .input-group-btn
+                button.btn.btn-default Subscribe
+    .row
+      .col-xs-12.col-md-6
+        h4 Top ingredients
+        .list-group
+          each item in new Array(10)
+            a.list-group-item(href="#") Pasta
+      .col-xs-12.col-md-6
+        h4 Top Recipies
+        .list-group
+          each item in new Array(10)
+            a.list-group-item(href="#") Pasta with unicorn meet
