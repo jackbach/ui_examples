@@ -68,5 +68,5 @@ module.exports = function (grunt) {
 
   });
 
-  grunt.registerTask('default', ['connect', 'less', 'coffee', 'pages', 'watch']);
+  grunt.registerTask('default', ['connect', 'less', 'pages', 'watch']);
 };
